@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Alfabeto Personalizado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7e7e7;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Conversor de Alfabeto Personalizado</h1>
+
+    <textarea id="inputText" placeholder="Escribe el texto aquí..."></textarea>
+    <button onclick="convertText()">Convertir</button>
+
+    <div class="result">
+        <strong>Texto convertido:</strong>
+        <p id="outputText"></p>
+    </div>
+
+    <script>
+        // Definimos el alfabeto personalizado
+        const customAlphabet = {
+            'a': 'a b',
+            'b': 'b a',
+            'c': 'a c',
+            'd': 'b c',
+            'e': 'c a',
+            'f': 'a d',
+            'g': 'b d',
+            'h': 'c d',
+            'i': 'd a',
+            'j': 'a e',
+            'k': 'b e',
+            'l': 'c e',
+            'm': 'd e',
+            'n': 'e a',
+            'o': 'a f',
+            'p': 'b f',
+            'q': 'c f',
+            'r': 'd f',
+            's': 'e f',
+            't': 'f a',
+            'u': 'a g',
+            'v': 'b g',
+            'w': 'c g',
+            'x': 'd g',
+            'y': 'e g',
+            'z': 'f g',
+            '0': 'g a',
+            '1': 'a h',
+            '2': 'b h',
+            '3': 'c h',
+            '4': 'd h',
+            '5': 'e h',
+            '6': 'f h',
+            '7': 'g h',
+            '8': 'h a',
+            '9': 'a i',
+            ' ': ' '
+        };
+
+        // Función para convertir texto normal al alfabeto personalizado
+        function convertText() {
+            const inputText = document.getElementById('inputText').value.toLowerCase();
+            let outputText = '';
+
+            for (let char of inputText) {
+                if (customAlphabet[char]) {
+                    outputText += customAlphabet[char] + ' ';
+                } else {
+                    outputText += char + ' ';  // Si no existe en el alfabeto personalizado, lo dejamos igual
+                }
+            }
+
+            document.getElementById('outputText').textContent = outputText.trim();
+        }
+    </script>
+
+</body>
+</html>
